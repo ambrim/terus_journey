@@ -1,0 +1,23 @@
+version: "2"
+services:
+  node:
+    container_name: cos426-game-server
+    build: ./docker
+    user: "node"
+    working_dir: /home/node/server
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - type: bind
+        source: ./dist
+        target: /home/node/server
+        read_only: true
+    command: "node main.bundle.js"
+  ngrok:
+    container_name: ngrok
+    image: ngrok/ngrok:alpine
+    environment:
+      - NGROK_AUTHTOKEN=2HaQ4BuVSOIFRo57Epo4Dfkb9FS_5Gu8x8ubgzzHegMWKHN5V
+    ports:
+      - 4040:4040
+    command: "http https://cos426-game-server:8080/ --region=us --hostname=vexiona.ngrok.io"

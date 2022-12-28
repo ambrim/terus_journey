@@ -1,0 +1,28 @@
+body {
+    margin: 0px;
+}
+
+canvas {
+    padding: 0;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.hello {
+    color: red;
+}
+.scoreboard {
+    background-color: white;
+}
+
+#p1-score {
+    font-family: sans-serif;
+}
+#p2-score {
+    font-family: sans-serif;
+}
